@@ -26,3 +26,9 @@ class User(Graph):
         else:
             print(f"{friend_id} is not a friend of {self.user_id}.")
 
+    def add_interest(self, interest):
+        if interest not in self.interests:
+            self.interests.append(interest)
+            print(f"{interest} has been added to {self.user_id}'s interests.")
+        else:
+            print(f"{interest} is already an interest of {self.user_id}.")
