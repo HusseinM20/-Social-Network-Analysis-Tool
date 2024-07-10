@@ -37,7 +37,6 @@ def remove_edge(self, vertex1, vertex2):
             print("No edge exists between", vertex1, "and", vertex2, "\n")
     else:
         print("Vertices must exist in the graph to remove an edge!\n")
-        
 
 def display_graph(self):
     if self.adj_list == {}:
@@ -49,3 +48,11 @@ def display_graph(self):
             print(vertex, ":", self.adjacency_list[vertex].keys())
         print("\n")
          
+def __str__(self):
+    return str(self.adjacency_list) 
+def __len__(self):
+    return len(self.adjacency_list)
+def __contains__(self, vertex):
+    return vertex in self.adjacency_list
+def __getitem__(self, vertex):
+    return self.adjacency_list[vertex]
