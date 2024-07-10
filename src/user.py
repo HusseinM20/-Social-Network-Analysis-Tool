@@ -39,3 +39,9 @@ class User(Graph):
             print(f"{interest} has been removed from {self.user_id}'s interests.")
         else:
             print(f"{interest} is not an interest of {self.user_id}.")
+
+    def add_post(self, post):
+        self.posts.append(post)
+        print(f"Post added to {self.user_id}'s post list.")      
+
+    
