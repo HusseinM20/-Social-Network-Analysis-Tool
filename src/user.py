@@ -44,4 +44,9 @@ class User(Graph):
         self.posts.append(post)
         print(f"Post added to {self.user_id}'s post list.")      
 
-    
+    def remove_post(self, post):
+        if post in self.posts:
+            self.posts.remove(post)
+            print(f"Post removed from {self.user_id}'s post list.")
+        else:
+            print("Post not found in the list.")
