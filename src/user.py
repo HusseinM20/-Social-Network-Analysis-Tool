@@ -16,5 +16,13 @@ class User(Graph):
             self.friends.append(friend_id)
             print(f"{friend_id} has been added to {self.user_id}'s friends list.")
         else:
-            print(f"{friend_id} is already a friend of {self.user_id}.")       
-            
+            print(f"{friend_id} is already a friend of {self.user_id}.")   
+
+    def remove_friend(self, friend_id):
+        if friend_id in self.friends:
+            super().remove_edge(self.user_id, friend_id)
+            self.friends.remove(friend_id)
+            print(f"{friend_id} has been removed from {self.user_id}'s friends list.")
+        else:
+            print(f"{friend_id} is not a friend of {self.user_id}.")
+
