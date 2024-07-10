@@ -36,3 +36,8 @@ class SocialNetwork(Graph):
             print(f"Friendship removed between {user1_id} and {user2_id}.")
         else:
             print(f"Both users must exist in the network to remove a friendship.")
+
+    def display_network(self):
+        self.display_graph()
+        for user_id in self.users:
+            self.users[user_id].display_user()        
