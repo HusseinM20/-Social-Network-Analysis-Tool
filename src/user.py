@@ -32,3 +32,10 @@ class User(Graph):
             print(f"{interest} has been added to {self.user_id}'s interests.")
         else:
             print(f"{interest} is already an interest of {self.user_id}.")
+
+    def remove_interest(self, interest):
+        if interest in self.interests:
+            self.interests.remove(interest)
+            print(f"{interest} has been removed from {self.user_id}'s interests.")
+        else:
+            print(f"{interest} is not an interest of {self.user_id}.")
