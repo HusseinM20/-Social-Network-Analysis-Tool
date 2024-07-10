@@ -50,3 +50,11 @@ class User(Graph):
             print(f"Post removed from {self.user_id}'s post list.")
         else:
             print("Post not found in the list.")
+
+    
+    def __str__(self):
+        return f"User ID: {self.user_id}, Name: {self.name}, Friends: {self.friends}, Interests: {self.interests}, Posts: {self.posts}"
+        
+
+    def display_user(self):
+          print(self)  # Uses the overridden __str__ method for display
