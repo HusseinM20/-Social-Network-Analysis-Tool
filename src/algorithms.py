@@ -79,7 +79,29 @@ def merge_sort(arr, attribute):
     sorted_arr = merge(left_half, right_half, attribute)
     return sorted_arr
 
-
+def merge(left, right, attribute):
+    sorted_arr = []
+    left_idx, right_idx = 0, 0
+    
+    # Compare elements from left and right subarrays
+    while left_idx < len(left) and right_idx < len(right):
+        if getattr(left[left_idx], attribute) <= getattr(right[right_idx], attribute):
+            sorted_arr.append(left[left_idx])
+            left_idx += 1
+        else:
+            sorted_arr.append(right[right_idx])
+            right_idx += 1
+    
+    # Append remaining elements
+    while left_idx < len(left):
+        sorted_arr.append(left[left_idx])
+        left_idx += 1
+    
+    while right_idx < len(right):
+        sorted_arr.append(right[right_idx])
+        right_idx += 1
+    
+    return sorted_arr
 
 
 
