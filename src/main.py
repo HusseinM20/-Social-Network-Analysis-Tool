@@ -124,9 +124,42 @@ def main(self):
                 print(f"User {user_id} not found.")
 
         
+        elif choice == '15':
+            user_id = input("Enter user ID to remove interest from: ")
+            interest = input("Enter interest: ")
+            user = network.users.get(user_id)
+            if user:
+                user.remove_interest(interest)
+                print(f"Interest '{interest}' removed from user {user_id}.")
+            else:
+                print(f"User {user_id} not found.")
+
+        elif choice == '16':
+            user_id = input("Enter user ID to add post to: ")
+            post = input("Enter post: ")
+            user = network.users.get(user_id)
+            if user:
+                user.add_post(post)
+                print(f"Post added to user {user_id}.")
+            else:
+                print(f"User {user_id} not found.")
+
+        elif choice == '17':
+            user_id = input("Enter user ID to remove post from: ")
+            post = input("Enter post: ")
+            user = network.users.get(user_id)
+            if user:
+                user.remove_post(post)
+                print(f"Post removed from user {user_id}.")
+            else:
+                print(f"User {user_id} not found.")
+
+        elif choice == '18':
+            break
 
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main()
