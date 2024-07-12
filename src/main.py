@@ -60,7 +60,30 @@ def main(self):
         elif choice == '5':
             network.display_network()
 
-       
+        elif choice == '6':
+            start_vertex = input("Enter starting vertex for BFS: ")
+            bfs(network, start_vertex)
+
+        elif choice == '7':
+            start_vertex = input("Enter starting vertex for DFS: ")
+            dfs(network, start_vertex)
+
+        elif choice == '8':
+            start_vertex = input("Enter starting vertex for Dijkstra's: ")
+            distances = dijkstra(network, start_vertex)
+            print(f"Distances from {start_vertex}: {distances}")
+
+        elif choice == '9':
+            components = connected_components(network)
+            print(f"Connected Components: {components}")
+
+        elif choice == '10':
+            attribute = input("Enter attribute to sort by (user_id, name, number_of_friends): ")
+            sorted_users = merge_sort(list(network.users.values()), attribute)
+            for user in sorted_users:
+                print(user)
+
+    
 
 if __name__ == "__main__":
     main()
