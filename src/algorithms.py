@@ -44,23 +44,6 @@ def binary_search_user(self, attribute, value):
                 right = mid - 1
         return None            
 
-def merge_sort(arr, attribute):
-    if len(arr) <= 1:
-        return arr
-    
-    # Divide the array into two halves
-    mid = len(arr) // 2
-    left_half = arr[:mid]
-    right_half = arr[mid:]
-    
-    # Recursively sort each half
-    left_half = merge_sort(left_half, attribute)
-    right_half = merge_sort(right_half, attribute)
-    
-    # Merge the sorted halves
-    sorted_arr = merge(left_half, right_half, attribute)
-    return sorted_arr
-
 
 def merge_sort(arr, attribute):
     if len(arr) <= 1:
@@ -103,7 +86,7 @@ def merge(left, right, attribute):
     
     return 
 
-def dijkstraAlgorithm(self, source):
+def dijkstra(self, source):
     # Create a set to store the shortest distance from source to each vertex
     distance = {vertex: float('inf') for vertex in self.graph}
     # Set the distance of the source vertex to 0
@@ -135,6 +118,18 @@ def dijkstraAlgorithm(self, source):
     
     return distance
 
+def clustering_coefficient(graph, node):
+    neighbors = graph.get_neighbors(node)
+    if len(neighbors) < 2:
+        return 0
+    
+    links = 0
+    for neighbor in neighbors:
+        for adjacent in graph.get_neighbors(neighbor):
+            if adjacent in neighbors:
+                links += 1
+    
+    return links / (len(neighbors) * (len(neighbors) - 1))
 def average_number_of_friends(graph):
     total_friends = sum(len(neighbors) for neighbors in graph.adjacency_list.values())
     return total_friends / len(graph.nodes())

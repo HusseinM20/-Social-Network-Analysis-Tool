@@ -1,8 +1,9 @@
+from networkx import connected_components
 import graph
-import socialNetwork
+from socialNetwork import SocialNetwork
 import user
-import visualisations
-import algorithms
+from visualisations import plot_graph
+from algorithms import *
 
 
 def main(self):
@@ -93,7 +94,7 @@ def main(self):
         elif choice == '11':
             attribute = input("Enter attribute to search by (user_id, name): ")
             value = input(f"Enter value for {attribute}: ")
-            found_user = binary_search(list(network.users.values()), attribute, value)
+            found_user = binary_search_user(list(network.users.values()), attribute, value)
             if found_user:
                 print(f"User found: {found_user}")
             else:
@@ -155,7 +156,7 @@ def main(self):
                 print(f"User {user_id} not found.")
 
         elif choice == '18':
-            break
+            plot_graph(network)
 
         else:
             print("Invalid choice. Please try again.")
