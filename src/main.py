@@ -1,3 +1,10 @@
+import graph
+import socialNetwork
+import user
+import visualisations
+import algorithms
+
+
 def main(self):
     network = SocialNetwork()
 
@@ -83,7 +90,43 @@ def main(self):
             for user in sorted_users:
                 print(user)
 
-    
+        elif choice == '11':
+            attribute = input("Enter attribute to search by (user_id, name): ")
+            value = input(f"Enter value for {attribute}: ")
+            found_user = binary_search(list(network.users.values()), attribute, value)
+            if found_user:
+                print(f"User found: {found_user}")
+            else:
+                print("User not found.")
+
+        elif choice == '12':
+            avg_friends = average_number_of_friends(network)
+            density = network_density(network)
+            user_id = input("Enter user ID for clustering coefficient: ")
+            cluster_coeff = clustering_coefficient(network, user_id)
+            print(f"Average number of friends: {avg_friends}")
+            print(f"Network density: {density}")
+            print(f"Clustering coefficient for {user_id}: {cluster_coeff}")
+
+        elif choice == '13':
+            user_id = input("Enter user ID for recommendations: ")
+            recommendations = recommend_friends(network, user_id)
+            print(f"Friend recommendations for {user_id}: {recommendations}")
+
+        elif choice == '14':
+            user_id = input("Enter user ID to add interest to: ")
+            interest = input("Enter interest: ")
+            user = network.users.get(user_id)
+            if user:
+                user.add_interest(interest)
+                print(f"Interest '{interest}' added to user {user_id}.")
+            else:
+                print(f"User {user_id} not found.")
+
+        
+
+        else:
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
