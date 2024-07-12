@@ -139,5 +139,15 @@ def average_number_of_friends(graph):
     total_friends = sum(len(neighbors) for neighbors in graph.adjacency_list.values())
     return total_friends / len(graph.nodes())
 
+def recommend_friends(graph, user_id):
+    recommendations = {}
+    for neighbor in graph.get_neighbors(user_id):
+        for potential_friend in graph.get_neighbors(neighbor):
+            if potential_friend != user_id and potential_friend not in graph.get_neighbors(user_id):
+                if potential_friend not in recommendations:
+                    recommendations[potential_friend] = 0
+                recommendations[potential_friend] += 1
+    
+    return sorted(recommendations, key=recommendations.get, reverse=True)
 
-                        
+
