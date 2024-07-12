@@ -30,6 +30,19 @@ def sort_users(self, attribute):
             return getattr(user, attribute)
         self.users.sort(key=get_attribute)
 
+def binary_search_user(self, attribute, value):
+        self.sort_users(attribute)  # Ensure the list is sorted by the attribute
+        left, right = 0, len(self.users) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            user_attribute_value = getattr(self.users[mid], attribute)
+            if user_attribute_value == value:
+                return self.users[mid]
+            elif user_attribute_value < value:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return None            
 
 
 
