@@ -135,8 +135,9 @@ def dijkstraAlgorithm(self, source):
     
     return distance
 
-
-
+def average_number_of_friends(graph):
+    total_friends = sum(len(neighbors) for neighbors in graph.adjacency_list.values())
+    return total_friends / len(graph.nodes())
 
 
                         
