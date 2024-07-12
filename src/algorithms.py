@@ -59,10 +59,10 @@ def merge_sort(arr, attribute):
     
     # Merge the sorted halves
     sorted_arr = merge(left_half, right_half, attribute)
-    retursorted_arrn sorted_arr
+    return sorted_arr
 
 
- def merge_sort(arr, attribute):
+def merge_sort(arr, attribute):
     if len(arr) <= 1:
         return arr
     
@@ -102,6 +102,8 @@ def merge(left, right, attribute):
         right_idx += 1
     
     return 
+
+def shortestpath
 
 
 

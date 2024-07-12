@@ -21,6 +21,11 @@ def remove_edge(self, vertex1, vertex2):
         if vertex2 in self.adjacency_list[vertex1]:
             self.adjacency_list[vertex1].remove(vertex2)
             self.adjacency_list[vertex2].remove(vertex1)
+def get_neighbors(self, node):
+        return self.adjacency_list[node]  
+def is_empty(self):
+    return not bool(self.adjacency_list)
+          
 
 def display_graph(self):
     if self.adj_list == {}:
