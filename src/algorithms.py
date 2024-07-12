@@ -59,7 +59,7 @@ def merge_sort(arr, attribute):
     
     # Merge the sorted halves
     sorted_arr = merge(left_half, right_half, attribute)
-    return sorted_arr
+    retursorted_arrn sorted_arr
 
 
  def merge_sort(arr, attribute):
@@ -101,7 +101,7 @@ def merge(left, right, attribute):
         sorted_arr.append(right[right_idx])
         right_idx += 1
     
-    return sorted_arr
+    return 
 
 
 
