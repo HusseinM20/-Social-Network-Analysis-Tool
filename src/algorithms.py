@@ -151,3 +151,10 @@ def recommend_friends(graph, user_id):
     return sorted(recommendations, key=recommendations.get, reverse=True)
 
 
+def network_density(graph):
+    n = len(graph.nodes())
+    e = len(graph.edges())
+    if n <= 1:
+        return 0
+    return 2 * e / (n * (n - 1))
+
