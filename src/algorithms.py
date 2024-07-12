@@ -103,7 +103,38 @@ def merge(left, right, attribute):
     
     return 
 
-def shortestpath
+def dijkstraAlgorithm(self, source):
+    # Create a set to store the shortest distance from source to each vertex
+    distance = {vertex: float('inf') for vertex in self.graph}
+    # Set the distance of the source vertex to 0
+    distance[source] = 0
+    # Create a dictionary to store the visited vertices
+    visited = {}
+    
+    while True:
+        # Find the vertex with the minimum distance that has not been visited
+        min_distance = float('inf')
+        min_vertex = None
+        for vertex in distance:
+            if vertex not in visited and distance[vertex] < min_distance:
+                min_distance = distance[vertex]
+                min_vertex = vertex
+        
+        # If all vertices have been visited or there are no more reachable vertices, break the loop
+        if min_vertex is None:
+            break
+        
+        # Mark the current vertex as visited
+        visited[min_vertex] = True
+        
+        # Update the distances of the neighboring vertices
+        for neighbor, weight in self.graph[min_vertex].items():
+            new_distance = distance[min_vertex] + weight
+            if new_distance < distance[neighbor]:
+                distance[neighbor] = new_distance
+    
+    return distance
+
 
 
 
