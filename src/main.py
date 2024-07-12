@@ -23,3 +23,45 @@ def main(self):
         print("18. Exit")
 
    
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            user_id = input("Enter user ID: ")
+            name = input("Enter name: ")
+            network.add_user(user_id, name)
+
+            while True:
+                interest = input("Enter an interest (or 'done' to finish): ")
+                if interest.lower() == 'done':
+                    break
+                user = network.users.get(user_id)
+                user.add_interest(interest)
+
+            while True:
+                post = input("Enter a post (or 'done' to finish): ")
+                if post.lower() == 'done':
+                    break
+                user.add_post(post)
+
+        elif choice == '2':
+            user_id = input("Enter user ID to remove: ")
+            network.remove_user(user_id)
+
+        elif choice == '3':
+            user1_id = input("Enter first user ID: ")
+            user2_id = input("Enter second user ID: ")
+            network.add_friendship(user1_id, user2_id)
+
+        elif choice == '4':
+            user1_id = input("Enter first user ID: ")
+            user2_id = input("Enter second user ID: ")
+            network.remove_friendship(user1_id, user2_id)
+
+        elif choice == '5':
+            network.display_network()
+
+       
+
+if __name__ == "__main__":
+    main()
+
