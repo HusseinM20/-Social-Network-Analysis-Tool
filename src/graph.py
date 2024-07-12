@@ -26,6 +26,8 @@ def get_neighbors(self, node):
 def is_empty(self):
     return not bool(self.adjacency_list)
           
+def clear(self):
+    self.adjacency_list = {}          
 
 def display_graph(self):
     if self.adj_list == {}:
