@@ -1,5 +1,4 @@
 from graph import Graph
-
 def bfs(self):  
     # Create a queue for BFS
     queue = []
@@ -26,6 +25,11 @@ def dfs(self, v, visited):
     for i in self.graph[v]:
         if visited[i] == False:
             self.dfs(i, visited) 
+def sort_users(self, attribute):
+        def get_attribute(user):
+            return getattr(user, attribute)
+        self.users.sort(key=get_attribute)
+
 
 
 
