@@ -18,7 +18,15 @@ def bfs(self):
                 queue.append(i)
                 visited[i] = True
 
-    
+def dfs(self, v, visited):
+    # Mark the current node as visited and print it
+    visited[v] = True
+    print(v, end = " ")
+    # Recur for all the vertices adjacent to this vertex
+    for i in self.graph[v]:
+        if visited[i] == False:
+            self.dfs(i, visited) 
+
 
 
 
